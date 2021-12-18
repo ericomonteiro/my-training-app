@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:my_training_app/components/DefaultButton.dart';
+import 'package:my_training_app/screens/security/loginForm.dart';
 
 void main() {
   runApp(const MyApp());
@@ -14,7 +15,8 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'My Training',
       theme: ThemeData.dark(),
-      home: const MyHomePage(title: 'My Training'),
+      //home: const MyHomePage(title: 'My Training'),
+      home: LoginForm(),
     );
   }
 }

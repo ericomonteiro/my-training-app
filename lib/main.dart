@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:my_training_app/components/DefaultButton.dart';
-import 'package:my_training_app/screens/security/loginForm.dart';
+import 'package:my_training_app/components/buttons/DefaultButton.dart';
+import 'package:my_training_app/screens/security/loginPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'My Training',
       theme: ThemeData.dark(),
       //home: const MyHomePage(title: 'My Training'),
-      home: LoginForm(),
+      home: const LoginPage(),
     );
   }
 }
@@ -94,7 +94,6 @@ class _MyHomePageState extends State<MyHomePage> {
               '$_counter',
               style: Theme.of(context).textTheme.headline4,
             ),
-            const DefaultButton(label: 'Login',)
           ],
         ),
       ),

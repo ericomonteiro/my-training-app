@@ -9,6 +9,7 @@ class DefaultTextField extends StatelessWidget {
   final TextInputType keyboardType;
   final bool obscureText;
   final bool clearable;
+  final ValueChanged<String>? onChanged;
 
   const DefaultTextField({
     Key? key,
@@ -18,7 +19,8 @@ class DefaultTextField extends StatelessWidget {
     this.icon,
     this.keyboardType = TextInputType.text,
     this.obscureText = false,
-    this.clearable = false
+    this.clearable = false,
+    this.onChanged,
   }) : super(key: key);
 
   @override
@@ -27,16 +29,18 @@ class DefaultTextField extends StatelessWidget {
       padding: TextFieldsConsts.padding,
       child: TextField(
         controller: controller,
+        onChanged: onChanged,
         style: TextFieldsConsts.textStyle,
         decoration: InputDecoration(
           prefixIcon: icon != null ? Icon(icon) : null,
-          suffixIcon: !clearable
+          suffixIcon: !clearable || controller.text.isEmpty
               ? const Text('')
               : GestureDetector(
-              onTap: () {
-                controller.clear();
-              },
-              child: const Icon(Icons.close)),
+                onTap: () {
+                  controller.clear();
+                  onChanged?.call('');
+                },
+                child: const Icon(Icons.close)),
           labelText: label,
           hintText: hint,
           border: OutlineInputBorder(
@@ -44,7 +48,6 @@ class DefaultTextField extends StatelessWidget {
               borderSide:
               const BorderSide(color: Colors.red, width: 1)),
         ),
-
         keyboardType: keyboardType,
         obscureText: obscureText,
       ),

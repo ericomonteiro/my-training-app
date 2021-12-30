@@ -15,7 +15,7 @@ class LoginPageController  {
     _updateData();
     print(_email);
     print(_password);
-    _securityService.anonymousTest();
+    _securityService.login(_email, _password);
   }
 
   void _updateData() {

@@ -1,6 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_training_app/components/dialogs/response_dialog.dart';
+import 'package:my_training_app/screens/security/homePage.dart';
 import 'package:my_training_app/service/security_service.dart';
 
 class LoginPageController  {
@@ -19,8 +20,11 @@ class LoginPageController  {
     _updateData();
     print(_email);
     print(_password);
-    // _securityService.login(_email, _password);
-    _showSuccessfulMessage(context);
+    _securityService.login(_email, _password);
+    // _showSuccessfulMessage(context);
+    // Route route = MaterialPageRoute(builder: (context) => const HomePage());
+    // Navigator.push(context, route);
+    // Navigator.pushReplacement(context, route);
   }
 
   void _updateData() {

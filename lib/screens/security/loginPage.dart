@@ -20,7 +20,7 @@ class _LoginPageState extends State<LoginPage> {
 
   @override
   Widget build(BuildContext context) {
-    final LoginPageController loginPageController = LoginPageController(_txtMailController, _txtPasswordController);
+    final LoginPageController loginPageController = LoginPageController(context, _txtMailController, _txtPasswordController);
 
     return Scaffold(
         appBar: AppBar(
